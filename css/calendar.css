@@ -1,0 +1,334 @@
+/* Calendar */
+
+#cal-container {
+    position: relative;
+
+    width: 100%;
+    /* height: 1200px; */
+    padding: 0;
+
+    font-size: 0.8rem;
+    line-height: 100%;
+}
+
+#cal-container,
+#cal-container * {
+  box-sizing: border-box;
+}
+
+
+/* Time slots */
+
+#cal-container .cal-time-slot-container {
+  display: grid;
+  /* grid-template-columns: repeat(24, 1fr); */
+  grid-template-rows: 30px auto;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% + 30px);
+  padding: 0;
+  border-bottom: 0px solid rgba(71, 19, 43, 0.25);
+  z-index: 10;
+}
+
+#cal-container .cal-time-slot {
+  /* border-right: 1px solid #928c79; */
+  background-color: rgba(71, 19, 43, 0.3);
+}
+
+/* #cal-container .cal-time-slot:hover {
+  background-color: red;
+} */
+
+#cal-container .cal-time-slot:nth-child(even) {
+  background-color: rgba(71, 19, 43, 0);
+}
+
+/* #cal-container .cal-time-slot:nth-child(even):hover {
+  background-color: #D9D9D9;
+} */
+
+#cal-container .cal-time-slot:last-child {
+  border-right: 0;
+}
+
+#cal-container .cal-time-slot-hour {
+  padding: 0 0 0 calc(100% - 0.9rem + 7px);
+  background-color: none; /* rgba(255, 223, 165, 0.08); */
+  border-bottom: 0px solid rgba(71, 19, 43, 0.25);
+  font-size: 1rem;
+}
+
+#cal-container .cal-time-slot-hour:nth-child(even) {
+  background-color: none;/* rgba(255, 223, 165, 0.05);*/
+}
+
+#cal-container .cal-time-slot-hour:first-child {
+  color: transparent;
+  border-right: 0;
+}
+
+/* Events */
+
+#cal-container .cal-event-container {
+  display: grid;
+  /* grid-template-columns: repeat(24, 1fr); */
+  /* grid-template-rows: repeat(12, auto); */
+
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 100%;
+  /* height: 100%; */
+  padding: 0;
+  z-index: 100;
+}
+
+#cal-container .cal-event {
+  position: relative;
+  height: 42px;
+  margin: 2px 0;
+  padding: 5px;
+  /* background-color: #EFEFEF; */
+  border-radius: 3px;
+  /* border: 1px solid #CCC; */
+  border-width: 1px;
+  border-style: solid;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* z-index: 500; */
+  transition: 50ms ease-in;
+}
+
+#cal-container .cal-event > * {
+  display: none;
+  margin: 5px;
+  overflow: hidden;
+}
+
+#cal-container .cal-event > .cal-event-name,
+#cal-container .cal-event > .cal-event-location,
+#cal-container .cal-event > .cal-event-perm-count {
+  display: block;
+  margin: 0;
+}
+
+#cal-container .cal-event > .cal-event-name {
+  font-weight: 700;
+}
+
+#cal-container .cal-event > .cal-event-location {
+  font-weight: 300;
+  font-style: italic;
+}
+
+/*#cal-container .cal-event > .cal-event-location::before {
+  content: " · ";
+}*/
+
+#cal-container .cal-event > .cal-event-perm-count {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+#cal-container .cal-event:not(.cal-event-subscribed) > .cal-event-perm-count.cal-perms-missing {
+  width: calc(100% - 10px);
+  right: auto;
+  margin: 5px;
+  padding: 5px;
+  background-color: #FFF;
+  border: 2px solid #E44;
+  color: #E44;
+  font-weight: bold;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+#cal-container .cal-event.cal-event-subscribed {
+  border-width: 3px;
+  border-color: #000;
+}
+
+#cal-container .cal-event.cal-event-subscribed::after {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 16px;
+  height: 16px;
+  padding: 1px;
+  color: #fff;
+  background-color: #000;
+  border-top-right-radius: 3px;
+}
+
+
+/* Event details popup */
+
+#cal-container .cal-event-details {
+  position: absolute;
+  min-height: 100px;
+  /* min-width: 40%; */
+  max-width: 80%;
+  padding: 20px;
+  background-color: #333;
+  color: #FFF;
+  border-radius: 4px;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+}
+
+#cal-container .cal-event-details:after {
+    bottom: 100%;
+    left: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-bottom-color: #333;
+    border-width: 20px;
+    margin-left: -20px;
+}
+
+#cal-container .cal-event-details.above-event:after {
+  top: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-top-color: #333;
+  border-width: 20px;
+  margin-left: -20px;
+}
+
+#cal-container .cal-event-details * {
+  z-index: 1000;
+}
+
+#cal-container .cal-event-details .cal-detail-close-button {
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  margin: 0;
+  padding: 5px;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  color: #BBB;
+  transition: 100ms ease-out;
+}
+
+#cal-container .cal-event-details .cal-detail-close-button:hover {
+  background-color: #484848;
+  color: #EFEFEF;
+}
+
+#cal-container .cal-event-details a,
+#cal-container .cal-event-details a:hover {
+  color: #FFF;
+  text-decoration: none;
+}
+
+#cal-container .cal-event-details .cal-detail-name {
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 1rem;
+  color: #FFF;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+#cal-container .cal-event-details .cal-detail-name h3 {
+  margin: 0 20px 20px 20px;
+}
+
+#cal-container .cal-event-details table {
+  margin: 0 auto;
+}
+
+#cal-container .cal-event-details td.cal-detail-label {
+  padding: 0 10px 10px 0;
+  font-weight: bold;
+  text-align: right;
+}
+
+#cal-container .cal-event-details td.cal-detail-value {
+  padding: 0 0 10px 10px;
+  text-align: left;
+}
+
+#cal-container .cal-event-details .cal-detail-perm-area {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #DFDFDF;
+  color: #333;
+  text-align: center;
+  border-radius: 4px;
+}
+
+#cal-container .cal-event-details .cal-detail-perm-title {
+  margin: 0 0 10px 0;
+}
+
+#cal-container .cal-event-details .cal-detail-perm-area .cal-detail-perm-count {
+  margin: 0 10px 0 0;
+  font-size: 1.7rem;
+  vertical-align: middle;
+}
+
+#cal-container .cal-event-details .cal-detail-perm-area .cal-detail-perm-count.cal-perms-missing {
+  color: #E44;
+}
+
+#cal-container .cal-event-details .cal-detail-perm-area .cal-detail-perm-count.cal-perms-full {
+  color: #393;
+}
+
+
+#cal-container .cal-event-details .cal-detail-perm-area .cal-detail-perm-subscription-switch {
+  margin: 0 0 0 10px;
+  padding: 10px;
+  font-size: 1.35rem;
+  vertical-align: middle;
+}
+
+#cal-container .cal-event-details .cal-detail-perm-area .cal-detail-perm-nb-missing-perms {
+  margin: 20px 0 0 0;
+  padding: 5px;
+  background-color: #FFF;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #E44;
+  font-weight: bold;
+}
+
+#cal-container .cal-event-details .cal-detail-description {
+  margin: 20px 0 0 0;
+  color: #DDD;
+  font-size: 0.9rem;
+  font-style: italic;
+  text-align: justify;
+  line-height: 130%;
+}
+
+#cal-container .cal-event-details .cal-detail-tag {
+  display: inline-block;
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid #DDD;
+}

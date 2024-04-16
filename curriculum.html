@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml">
+<title>Constantin Vaillant-Tenzer personal website</title>
+
+<head>
+<meta charset = UTF8>
+<meta name="author" content="Constantin Vaillant-Tenzer" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" /> 
+<meta http-equiv="Content-Language" content="en" />
+<meta name="keywords" lang="fr" content="Mathematiques, sciences
+cognitives, 
+musique,
+piano,
+violon,
+écriture" />
+<meta name="keywords" lang="en" content="mathematics,
+cogntive sciences,
+piano,
+violin,
+music,
+writting" />
+<!--<link rel="stylesheet" href="ocean.css" type="text/css" media="screen"
+title="Simple"/> -->
+<link rel="stylesheet" href="css/normalize.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/tipso.css">
+<link rel="stylesheet" href="css/calendar.css">
+</head>
+
+<body id="theme">
+
+    <header id="main-header"></header>
+
+<div id="tout">
+
+<!-- Barre de navigation -->
+
+
+<!-- Barre de navigation -->
+<div id="container">
+    <div id="nav">
+    <ul>
+    <li> <a href="index.html">Home</a></li>
+    <li> <a href="curriculum.html">CV</a></li>
+    <li> <a href="research.html">Research</a></li>
+    <li> <a href="teaching.html">Teaching</a></li>
+    <li> <a href="art.html">Arts</a></li>
+    <li> <a href="blog.html">News</a></li>
+    </ul>
+    </div>
+    <div id="welcome">
+      Constantin Vaillant-Tenzer  -  CV
+    </div>
+    </div>
+
+
+
+
+<!-- Fin barre de navigation -->
+
+
+<!-- Votre texte à proprement parler -->
+
+<div id="corps">
+    <section>
+        <h2></h2>
+    <p>You can find <a href="CV_CVT.pdf" target="_blank">here</a> a short version of my CV (in French).</p>
+
+    <p> A longer one and an English version are in preparation.</p>
+</section>
+
+  <!-- Contact -->
+  <section>
+    <h2>Contact</h2>
+    <div>
+
+      <p id="contact-email">
+        <img src="img/icons/email.svg" alt="Email">
+        <span>constantin[dot]tenzer[at]ens[dot]fr</span>
+      </p>
+    </div>
+  </section>
+</div>
+
+
+ <!-- Affiliations -->
+ <section>
+    <h2>Current affiliations</h2>
+    <div>
+      <div id="sponsors">
+        <a href="https://u-paris.fr">
+          <img class="sponsor-disc" src="img/sponsors/logoUP.png" alt="Université Paris Cité">
+        </a>
+        <a href="https://www.sorbonne-universite.fr/">
+          <img class="sponsor-disc" src="img/sponsors/sorbonne.png" alt="Sorbonne Université">
+        </a>
+        <a href="https://www.inserm.fr/">
+          <img class="sponsor-disc" src="img/sponsors/logo_Inserm.png" alt="Inserm">
+        </a>
+
+        <a href="https://www.ens.psl.eu/">
+            <img class="sponsor-disc" src="img/sponsors/logo_ens_psl_couleur.png" alt="ENS-PSL">
+          </a>
+
+        <br>
+      </div>
+    </section>
+</div>
+</body>
+
+<script>
+  window.addEventListener('scroll', function() {
+             var header = document.getElementById('main-header');
+             var nav = document.getElementById('nav');
+             var headerContainer = document.getElementById('header-container');
+             var headerHeight = header.clientHeight;
+             var scrollPosition = window.scrollY || window.pageYOffset;
+ 
+             if (scrollPosition >= headerHeight) {
+                 nav.style.position = 'fixed';
+                 nav.style.top = '0';
+                 headerContainer.style.height = headerHeight + 'px';
+             } else {
+                 nav.style.position = 'absolute';
+                 nav.style.top = headerHeight + 'px';
+                 headerContainer.style.height = 'auto';
+             }
+         });
+ </script>
+
+
+</body>
+
+</html>

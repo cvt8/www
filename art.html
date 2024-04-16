@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml">
+<title>Constantin Vaillant-Tenzer personal website - Arts </title>
+
+<head>
+<meta charset = UTF8>
+<meta name="author" content="Constantin Vaillant-Tenzer" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" /> 
+<meta http-equiv="Content-Language" content="en" />
+<meta name="keywords" lang="fr" content="Mathematiques, sciences
+cognitives, 
+musique,
+piano,
+violon,
+écriture" />
+<meta name="keywords" lang="en" content="mathematics,
+cogntive sciences,
+piano,
+violin,
+music,
+writting" />
+<!--<link rel="stylesheet" href="ocean.css" type="text/css" media="screen"
+title="Simple"/> -->
+<link rel="stylesheet" href="css/normalize.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/tipso.css">
+<link rel="stylesheet" href="css/calendar.css">
+</head>
+
+<body id="theme">
+
+    <header id="main-header"></header>
+
+<div id="tout">
+
+<!-- Barre de navigation -->
+<div id="container">
+  <div id="nav">
+  <ul>
+  <li> <a href="index.html">Home</a></li>
+  <li> <a href="curriculum.html">CV</a></li>
+  <li> <a href="research.html">Research</a></li>
+  <li> <a href="teaching.html">Teaching</a></li>
+  <li> <a href="art.html">Arts</a></li>
+  <li> <a href="blog.html">News</a></li>
+  </ul>
+  </div>
+  <div id="welcome">
+    Constantin Vaillant-Tenzer  -  Arts
+  </div>
+  </div>
+  
+<!-- Fin barre de navigation -->
+
+
+<!-- Votre texte à proprement parler -->
+
+<div id="corps">
+    <section>
+<h2>Music</h2>
+<p> I play the piano and the violin. I also started the trumpet in a marching band, the <a href="https://ernestophone.ens.fr/" target="_blank" rel="noopener noreferrer">Ernestophone</a>.
+</p>
+
+<p>
+I am also improvising and composing (a list will be soon available).
+You can listen to some of my creations, played by myself on my Bandcamp page.
+</p>
+
+
+<a href="https://costiavt.bandcamp.com/music" target="_blank">
+    <div class="button">
+      <img src="img/icons/bandcamp-logo.png" alt="Bancamp">
+      <span>Bandcamp</span>
+    </div>
+  </a>
+
+  <br>
+  <!-- <p class="stand-out">Feel free to have a look at the full planning below!</p> -->
+</div>
+</section>
+
+<section>
+  <h2>Writting</h2>
+  <p> 
+  </p>
+  
+  <p>
+    I have founded the ENS writting club, 
+    Ecriv'ENS - write me for more information, everyone, including from outside the ENS is welcome.
+  </p>
+  
+  </div>
+  </section>
+
+  <!-- Contact -->
+  <section>
+    <h2>Contact</h2>
+    <div>
+
+      <p id="contact-email">
+        <img src="img/icons/email.svg" alt="Email">
+        <span>constantin[dot]tenzer[at]ens[dot]fr</span>
+      </p>
+    </div>
+  </section>
+</div>
+</div>
+
+<script>
+  window.addEventListener('scroll', function() {
+             var header = document.getElementById('main-header');
+             var nav = document.getElementById('nav');
+             var headerContainer = document.getElementById('header-container');
+             var headerHeight = header.clientHeight;
+             var scrollPosition = window.scrollY || window.pageYOffset;
+ 
+             if (scrollPosition >= headerHeight) {
+                 nav.style.position = 'fixed';
+                 nav.style.top = '0';
+                 headerContainer.style.height = headerHeight + 'px';
+             } else {
+                 nav.style.position = 'absolute';
+                 nav.style.top = headerHeight + 'px';
+                 headerContainer.style.height = 'auto';
+             }
+         });
+ </script>
+ 
+</body>
+
+</html>
