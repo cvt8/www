@@ -9,9 +9,10 @@
     left: 0; /* Position it at the left of the viewport */
     width: 100%; /* Adjusted width to span the full viewport */
     height: 100px; /* Fixed height for horizontal navigation */
-    padding: 15px; /* Adjusted padding for horizontal layout */
-    overflow-x: auto; /* Add horizontal scroll functionality if content exceeds the width */
+    padding: 0px; /* Adjusted padding for horizontal layout */
+   /* overflow-x: hidden;  Add horizontal scroll functionality if content exceeds the width */
     white-space: nowrap; /* Prevent line breaks */
+	overflow-x: auto;
 	 /*z-index: 2; */
 }
 
@@ -19,6 +20,7 @@
     list-style-type: none;
     padding-left: 0;
     margin: 0; /* Remove default margin */
+	white-space: nowrap; 
 }
 
 #nav li {
@@ -46,11 +48,26 @@
     color: white;
 }
 
+#welcome {
+    position: absolute;
+   /* top: calc(75vh + 20px);  Position it slightly below the navigation bar 
+    left: calc(100% + 100px); /* Position it next to the navigation bar with some spacing */
+	right: calc(1%);
+    font-family: Arial, 'Lily Script One', cursive, Arial, sans-serif; /* Use Lily Script One font with fallbacks */
+    font-size: 1.5em; /* Adjust font size */
+    color: #FFEA80; /* Ensure visibility on dark background */
+    z-index: 1; /* Ensure it's above other elements */
+}
+
+#container {
+    display: flex; /* Use flexbox for horizontal alignment */
+}
+
 /* Styles for mobile devices */
 @media only screen and (max-width: 600px) {
     #nav {
         height: auto; /* Auto height for mobile */
-		z-index: 2;
+		z-index: 1; */
     }
 
     #nav li {
@@ -60,23 +77,15 @@
 	
 	#welcome {
 		position: auto;
+		right: calc(1%);
 		z-index: 2; /* Ensure it's above other elements */
+		font-family: Arial, 'Lily Script One', cursive, Arial, sans-serif; /* Use Lily Script One font with fallbacks */
+
 	}
-}
 
-#welcome {
-    position: absolute;
-   /* top: calc(75vh + 20px);  Position it slightly below the navigation bar 
-    left: calc(100% + 100px); /* Position it next to the navigation bar with some spacing */
-	left: calc(50% - 440px);
-    font-family: 'Lily Script One', cursive, Arial, sans-serif; /* Use Lily Script One font with fallbacks */
-    font-size: 2.3em; /* Adjust font size */
-    color: #FFEA80; /* Ensure visibility on dark background */
-    z-index: 1; /* Ensure it's above other elements */
-}
-
-#container {
-    display: flex; /* Use flexbox for horizontal alignment */
+	#container {
+		display: inline; /* Use flexbox for horizontal alignment */
+	}
 }
 
 
@@ -198,6 +207,7 @@ a {
     background-repeat: no-repeat;
     background-position: center 18%;
     background-size: cover; /* Ensure the image covers the entire header without deformity */
+    overflow: hidden; /* Ensure no content overflows from the header */
 }
 
 
